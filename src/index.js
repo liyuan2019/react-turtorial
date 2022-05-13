@@ -1,25 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// class Square extends React.Component {
-//   // constructor(props){
-//   //   super(props);
-//   //   this.state = {
-//   //     value: null,
-//   //   };
-//   // }
-
-//   render() {
-//     return (
-//       <button 
-//         className="square" 
-//         onClick={() => this.props.onClick()}
-//       >
-//         {this.props.value}
-//       </button>
-//     );
-//   }
-// }
 
 function Square(props) {
   return (
@@ -63,20 +44,6 @@ function Board(props) {
   )
 }
 
-// class Board extends React.Component {
-//   // renderSquare(row, col, i) {
-//   //   return (
-//   //   <Square 
-//   //     value={this.props.squares[i]} 
-//   //     onClick={() => this.props.onClick(row, col, i)}
-//   //   />
-//   //   );
-//   // }
-//   render() {
-    
-//   }
-// }
-
 class Game extends React.Component {
   constructor(props) {
     super(props)
@@ -96,10 +63,8 @@ class Game extends React.Component {
   }
 
   handleClick(row, col, i) {
-    // const history = this.state.history.slice(0, this.state.stepNumber + 1);
     let history
     const historyAll = this.state.history.slice()
-    // const current = historyAll.filter((v) => v.step === this.state.stepNumber)[0]
     const currentIndex = historyAll.map((v) => v.step).indexOf(this.state.stepNumber)
     const current = historyAll[currentIndex]
     const squares = current.squares.slice()
@@ -159,7 +124,6 @@ class Game extends React.Component {
     const history = this.state.history
     const current = history.filter((v) => v.step === this.state.stepNumber)[0]
     const winner = calculateWinner(current.squares)
-    // console.log(history)
     const moves = history.map((move) => {
       const desc = move.step ?
         'Go to move #' + move.step + ' (' + move.clickLocation.row + ',' + move.clickLocation.col + ')':
@@ -205,19 +169,6 @@ class Game extends React.Component {
     );
   }
 }
-
-// function GameInfo(props) {
-//   return (
-//     <div className="game-info">
-//     <div>{this.props.status}</div>
-//         <div style={{paddingTop: '10px'}}>
-//           <button onClick={() => this.props.onClick}>↑↓</button>
-//         </div>
-//         <ol>{this.props.moves}</ol>
-//     </div>
-// )
-// }
-
 // ========================================
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
